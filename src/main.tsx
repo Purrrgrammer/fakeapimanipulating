@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 import { Home } from '@/pages/homepage'
 import { Info } from '@/pages/info'
+import 'bootstrap/dist/css/bootstrap.css';
+
 const router = createBrowserRouter([
   {
     path: "/",

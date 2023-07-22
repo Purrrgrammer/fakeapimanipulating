@@ -29,7 +29,9 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src",
+    "unused/APOD.ts",
+    "unused/userDetail.ts"
   ],
   "references": [
     {

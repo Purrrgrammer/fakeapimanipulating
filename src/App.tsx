@@ -5,10 +5,7 @@ import './App.css'
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 
 function App() {
-
   <nav>
-
-
   </nav>
   return (
     <div>
