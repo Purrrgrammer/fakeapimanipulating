@@ -4,7 +4,6 @@ export interface JSPHResponse {
     status: number | undefined,
     error?: AxiosError<AxiosResponse<AxiosResponse<any, any>>> | AxiosResponse<any, any> | undefined
 }
-
 export const handleResponse = {
     success: (res: AxiosResponse) => {
         return {

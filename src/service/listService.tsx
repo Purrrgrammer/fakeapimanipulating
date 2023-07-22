@@ -20,10 +20,7 @@ export const mainService = () => {
                 return handleResponse.success(response);
             } catch (error: any) {
                 return error
-            }
+            };
         }
-    }
-}
-
-
-
+    };
+};

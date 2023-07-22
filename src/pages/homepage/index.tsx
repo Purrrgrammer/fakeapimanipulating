@@ -1,46 +1,48 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { showData } from '@/component/index'
 import { createStore } from '@reduxjs/toolkit'
 import { mainService } from '@/service'
-import { JResponse, Posts, jsonplaceholderResponse } from '@/interface/placeHolder'
+import { JResponse, Post, jsonplaceholderResponse } from '@/interface/placeHolder'
 // import axios from 'axios'
 import { AxiosResponse, AxiosError } from 'axios'
 
 
 
-
 export const Home = () => {
+    const [storeData, setStoreData] = useState<Post[]>([])
 
-    let storeData: any = []
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const data = await mainService().callService()
+                if (data.data) {
+                    const realData: Post[] = data.data
+                    setStoreData(realData)
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        const result = getData().then((result) => result)
+            .catch(error => error)
+        console.log("result", result)
+    }, [])
 
-    const getData = async () => {
-        const data = await mainService().callService()
-        console.log('data', data)
-        return data //get .data and .status
-    }
-
-    const result = getData().then((result) => result).then((result) => result.data)
-        .catch(error => error)
-
-    console.log("result", result)
-    console.log("storeData", storeData)
+    useEffect(() => { console.log(storeData) }, [storeData])
 
 
     /*
-    // console.log(getData())
+    console.log(getData())
     result.then((response) => { storeData.push(response.data), responseStatus = response.status })
-    
     console.log("storeData", typeof storeData)
     console.log("storeData", storeData)
     */
     return (
         <>
-            {/* <h1>{storeData.map((el, index) => { console.log(el[index]) })}</h1> */}
-            {/* <h1>{storeData.map(item:=>{
+            {storeData.map(el => { <h1 key={el.id}> {el.id}</h1> })}
+            {/* {storeData.map((el: string, index: number) => { return <h1 >{el[index]}</h1> })} */}
 
-                <h1>{item, name}</h1>
-
-            })}</h1> */}
         </>
     )
 }
