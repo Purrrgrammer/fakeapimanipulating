@@ -56,11 +56,8 @@ const useData = () => {
             setfetchData(initial)
         }
 
-
     }
-    useEffect(() => {
-        callData
-    }, [])
+
 }
 
 

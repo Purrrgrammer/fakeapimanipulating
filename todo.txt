@@ -1,0 +1,8 @@
+
+0.nav bar on the site - o
+
+1.map fetched data - X
+
+2.css on fetched data - o
+3.create detail on a single card - 0
+4.oncllck on single to show single card - o
