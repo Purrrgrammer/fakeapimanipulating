@@ -1,8 +1,10 @@
 
-0.nav bar on the site - o
-
+0.nav bar on the site - X
 1.map fetched data - X
+2.css on fetched data - X
 
-2.css on fetched data - o
-3.create detail on a single card - 0
-4.oncllck on single to show single card - o
+css on single data - o
+3.create detail on a single post - X still have some bug
+4.oncllck on single to show single post by using useParam - o
+
+add loading state - o

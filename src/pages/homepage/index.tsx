@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { showData } from '@/component/index'
 import { createStore } from '@reduxjs/toolkit'
 import { mainService } from '@/service'
-import { JResponse, Post } from '@/interface/placeHolder'
+import { Post } from '@/interface/placeHolder'
+import Posts from '@/Post/index'
+import React from 'react'
+import ReactLoading from 'react-loading';
+import { Row, Col, Container } from 'react-bootstrap'
 // import axios from 'axios'
-import { AxiosResponse, AxiosError } from 'axios'
-import Info from '../info'
 
 
 
@@ -27,9 +28,21 @@ export const Home = () => {
         getData()
     }, [])
     return (
-        <>
-            {storeData.map(el => { <h1 key={el.id}> {el.id}</h1> })}
-        </>
+        <Container fluid>
+            <Row gap={4} className='d-flex'>
+                {storeData.map(el => {
+                    return <React.Fragment key={`postnumber-${el.id}`}>
+                        <Col sm={12} md={6} lg={3} key={el.id} className='h-100'>
+                            <Posts userID={el.userID}
+                                id={el.id}
+                                title={el.title}
+                                body={el.body} />
+                        </Col>
+                    </React.Fragment>
+                })}
+
+            </Row>
+        </Container>
     )
 }
 

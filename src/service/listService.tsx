@@ -13,7 +13,7 @@ export const mainService = () => {
     return {
         callService: async (
         ): Promise<JResponse> => {
-            try {
+             try {
                 const response = await axios.get(`${URL}`)
                 console.log('service response', response)
                 console.log(handleResponse.success(response)) //extract status and data in form of J

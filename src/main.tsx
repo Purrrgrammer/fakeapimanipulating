@@ -5,7 +5,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 import { Home } from '@/pages/homepage'
-import { Info } from '@/pages/info'
+import { DetailPage } from '@/pages/detail/index.tsx'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const router = createBrowserRouter([
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "info",
-    element: <Info />,
+    path: "post/:id",
+    element: <DetailPage />,
   },
 ]);
 
