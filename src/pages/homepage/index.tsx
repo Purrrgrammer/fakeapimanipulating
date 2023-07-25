@@ -28,8 +28,8 @@ export const Home = () => {
         getData()
     }, [])
     return (
-        <Container fluid>
-            <Row gap={4} className='d-flex'>
+        <Container fluid >
+            <Row gap={4} className='d-flex' >
                 {storeData.map(el => {
                     return <React.Fragment key={`postnumber-${el.id}`}>
                         <Col sm={12} md={6} lg={3} key={el.id} className='h-100'>
@@ -40,7 +40,6 @@ export const Home = () => {
                         </Col>
                     </React.Fragment>
                 })}
-
             </Row>
         </Container>
     )

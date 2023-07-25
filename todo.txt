@@ -2,9 +2,16 @@
 0.nav bar on the site - X
 1.map fetched data - X
 2.css on fetched data - X
+css on single data - X
+4.oncllck on single to show single post by using useParam - X
 
-css on single data - o
-3.create detail on a single post - X still have some bug
-4.oncllck on single to show single post by using useParam - o
-
+3.create detail on a single post - o still have some bug
 add loading state - o
+5.create comment section
+
+
+what to get on this page?
+
+list to post
+>
+post info and comment on a comment section

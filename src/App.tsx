@@ -23,7 +23,8 @@ function App() {
               <a className="nav-link" href="/info">Info</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#"></a>
+              {/* <li>Seach Here </li>
+              <input /> */}
             </li>
             <li className="nav-item">
               <a className="nav-link disabled" href="#"></a>
