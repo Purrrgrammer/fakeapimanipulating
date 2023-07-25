@@ -6,8 +6,7 @@ import { URL } from "@/utillity/constant"
 
 export const postDetailService = () => {
     return {
-        getDetail: async (id: string
-        ): Promise<JResponse> => {
+        getDetail: async (id: string): Promise<JResponse> => {
             try {
                 const response = await axios.get(`${URL}/${id}`)
                 return handleResponse.success(response);
@@ -15,10 +14,9 @@ export const postDetailService = () => {
                 return error
             };
         },
-        getComment: async (id: string, postId: number
-        ): Promise<CommentResponse> => {
+        getComment: async (id: string): Promise<CommentResponse> => {
             try {
-                const response = await axios.get(`${URL}/${id}/comments?postId=${postId}`)
+                const response = await axios.get(`${URL}/${id}/comments`)
                 console.log("postId comment response", response)
                 return handleResponse.success(response);
             } catch (error: any) {
