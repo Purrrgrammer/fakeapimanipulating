@@ -4,14 +4,35 @@
 2.css on fetched data - X
 css on single data - X
 4.oncllck on single to show single post by using useParam - X
+3.create detail on a single post - X
+5.create comment section X
 
-3.create detail on a single post - o still have some bug
-add loading state - o
-5.create comment section
+post info and comment on a comment section X
+make it to be btn X
+list to post X
+add loading state -
 
 
-what to get on this page?
+for detail
+saved for later
 
-list to post
->
-post info and comment on a comment section
+share it to ypur id section
+
+
+
+
+NEWNENNEWNENWEN
+
+if possible > randomly map
+login page 
+notification
+chat and notification drop down
+
+if possible > time stamp
+local for shared post 
+local for liked post X
+interface account X
+account prev post X
+local for account X
+in dropdown get link to /account X
+filter by unlike postX

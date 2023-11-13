@@ -1,0 +1,168 @@
+body {
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.dropdown-menu[data-bs-popper] {
+  top: 140% !important;
+  left: -90px !important;
+}
+
+@media screen and (max-width: 1080px) {
+  .dropdown-menu[data-bs-popper] {
+    top: 110% !important;
+    left: 20px !important;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .dropdown-menu[data-bs-popper] {
+    top: 110% !important;
+    left: 20px !important;
+  }
+  .dd {
+    margin-top: 10px;
+  }
+}
+
+.card-home {
+  position: relative;
+}
+
+.card-status {
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+}
+.card-status > div {
+  color: gray;
+}
+
+.like {
+  color: red;
+}
+.reacting-section {
+}
+.reacting-section > button {
+  background: none;
+  border: none;
+}
+.reacting-section > button {
+  background: none;
+  border: none;
+  transition: 0.02s linear;
+}
+.reacting-section > button:active {
+  scale: 1.5;
+  transition: 0.05s linear;
+}
+.reacting-section > button > i {
+  font-size: 1.5rem;
+}
+
+.account-card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px 150px;
+  width: 400px;
+  height: 100%;
+}
+.account-card * {
+  font-size: 0.8rem;
+}
+.account-info > div:first-child > h1 {
+  font-size: 1.2rem;
+}
+.account-content {
+  width: 50%;
+}
+.nav-li > li {
+  padding: 0 50px;
+  margin: 0 20px;
+  border-bottom: none;
+  transition: 0.2s linear;
+}
+
+.account-profile-pic {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 200px;
+}
+.account-info {
+  width: 300px;
+}
+.account-info > div {
+  margin-top: 20px;
+}
+
+.acc-content {
+}
+.active {
+  color: red;
+}
+
+#navnavnav .nav-item a {
+  text-decoration: none;
+  padding: 0 10px;
+  position: relative;
+}
+#navnavnav .nav-item a::after {
+  transform: scaleX(0);
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: lightgray;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+}
+#navnavnav .nav-item a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.content-li {
+  position: relative;
+}
+
+.content-li:hover {
+  cursor: pointer;
+}
+
+.content-li:after {
+  transform: scaleX(0);
+  display: block;
+  /* position: absolute; */
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: lightgray;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+}
+.content-li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.unun > div {
+  font-weight: bold;
+}
+.page {
+  padding: 20px 0;
+}
+.footer {
+  height: 300px;
+  background-color: black;
+  color: white;
+  padding: 40px;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}

@@ -1,4 +1,3 @@
-import { mainService } from '@/service/listService'
+import { mainService } from "@/service/listService";
 
-
-export { mainService }
+export { mainService };
