@@ -58,7 +58,9 @@ export interface Account {
   prevPosts: Post[];
   socialMedia?: SocialMedia[];
 }
-export interface SocialMedia {}
+export interface SocialMedia {
+  [x: string]: string | undefined;
+}
 
 export interface OneMedia {
   name: string;

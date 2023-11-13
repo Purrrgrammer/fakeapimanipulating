@@ -10,8 +10,8 @@ export const AccountPage = () => {
   const currentUserFromLocal = JSON.parse(localStorage.getItem("user")!);
   const user = currentUserFromLocal || defaultUser;
   const liked = JSON.parse(localStorage.getItem("likedPosts")!);
-  const shared = JSON.parse(localStorage.getItem("likedPosts")!);
-  const posts = currentUserFromLocal?.prevPosts || defaultUser;
+  // const shared = JSON.parse(localStorage.getItem("likedPosts")!);
+  // const posts = currentUserFromLocal?.prevPosts || defaultUser;
   console.log([...new Set(liked)]);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const AccountPage = () => {
       content = (
         <div className={`p-4 `}>
           {liked ? (
-            liked.map((el) => (
+            liked.map((el: any) => (
               <Card
                 className="mx-auto"
                 style={{
@@ -136,6 +136,7 @@ export const AccountPage = () => {
             <ul className="navbar-nav nav-li">
               {contentType.map((el, index) => (
                 <li
+                  key={index}
                   className={`nav-item active ${
                     contentSelected === el.name ? "unun" : undefined
                   }`}

@@ -1,9 +1,9 @@
-import { Comment, Post, PostDetail, PostStatus } from "@/interface/model";
+import { Comment, PostDetail, PostStatus } from "@/interface/model";
 import { defaultUser } from "@/service/accountService";
 import { postDetailService } from "@/service/detailService";
 import { useEffect, useRef, useState } from "react";
 import { Button, Card, InputGroup } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const DetailPage = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ export const DetailPage = () => {
           newReactionVal[reaction] = newReactionVal[reaction] - 1;
           likedToLocal = likeFromLocal;
           const removedLike = likedToLocal.filter(
-            (el) => el.id !== postDetail.id
+            (el: any) => el.id !== postDetail.id
           );
           localStorage.setItem("likedPosts", JSON.stringify(removedLike));
           alert("case1");
@@ -46,8 +46,8 @@ export const DetailPage = () => {
               likedToLocal = likeFromLocal;
               likedToLocal.push(postDetail);
               const removeDupes = likedToLocal.filter(
-                (obj, index) =>
-                  index === likedToLocal.findIndex((o) => obj.id === o.id)
+                (obj: any, index: number) =>
+                  index === likedToLocal.findIndex((o: any) => obj.id === o.id)
               );
               localStorage.setItem("likedPosts", JSON.stringify(removeDupes));
               alert("case4");
