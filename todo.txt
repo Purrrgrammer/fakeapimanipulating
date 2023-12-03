@@ -16,23 +16,20 @@ add loading state -
 for detail
 saved for later
 
-share it to ypur id section
-
-
-
+share it to your id section
 
 NEWNENNEWNENWEN
-
-if possible > randomly map
+local for shared post
 login page 
-notification
-chat and notification drop down
+notification when action
+if possible > time stamp 
 
-if possible > time stamp
-local for shared post 
+if possible > randomly map 
+
+chat and notification drop down X
 local for liked post X
 interface account X
 account prev post X
 local for account X
 in dropdown get link to /account X
-filter by unlike postX
+filter by unlike post X

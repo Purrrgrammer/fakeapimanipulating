@@ -12,7 +12,6 @@ export const DetailPage = () => {
   const commentRef = useRef<any>(null);
   const localStatus = JSON.parse(localStorage.getItem("status")!);
   const localUser = JSON.parse(localStorage.getItem("user")!);
-
   const [postLiked, setPostLiked] = useState<boolean>(false);
   const [postStatus, setPostStatus] = useState<PostStatus>(localStatus);
   const [commentMessage, setCommentMessage] = useState<string | undefined>("");
@@ -31,17 +30,17 @@ export const DetailPage = () => {
             (el: any) => el.id !== postDetail.id
           );
           localStorage.setItem("likedPosts", JSON.stringify(removedLike));
-          alert("case1");
+          // alert("case1");
         } else {
           newReactionVal[reaction] = newReactionVal[reaction] + 1;
           if (!likeFromLocal) {
             likedToLocal.push(postDetail);
             localStorage.setItem("likedPosts", JSON.stringify(likedToLocal));
 
-            alert("case2");
+            // alert("case2");
           } else {
             if (likeFromLocal.includes(postDetail)) {
-              alert("case3");
+              // alert("case3");
             } else {
               likedToLocal = likeFromLocal;
               likedToLocal.push(postDetail);
@@ -50,7 +49,7 @@ export const DetailPage = () => {
                   index === likedToLocal.findIndex((o: any) => obj.id === o.id)
               );
               localStorage.setItem("likedPosts", JSON.stringify(removeDupes));
-              alert("case4");
+              // alert("case4");
             }
           }
         }
@@ -102,15 +101,18 @@ export const DetailPage = () => {
 
   const callDetail = async (id: string) => {
     const response = await postDetailService().getDetail(id);
-    console.log(response);
-    if (response.status === 200) {
-      console.log("response detail", response.data);
-    }
     try {
-      if (response.data) {
+      if (response.status === 200 && response.data) {
         const result = response.data;
         console.log(result);
-        setPostDetail(response.data); //set to a post
+        setPostDetail(result); //set to a post
+        if (
+          JSON.parse(localStorage.getItem("likedPosts")!)
+            .map((el: PostDetail) => el.body)
+            .includes(response.data.body)
+        ) {
+          setPostLiked(true);
+        }
       }
       return response;
     } catch (error) {

@@ -2,13 +2,13 @@ import { Account } from "@/interface/model";
 import { defaultUser, userList } from "@/service/accountService";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import Notification from "./Notification";
 const Navbar = () => {
   const [currentUser, setCurrentUser] = useState<Account | undefined>(
     defaultUser
   );
   const currentUserFromLocal = JSON.parse(localStorage.getItem("user")!);
-
+  // const notification = [{ content: "liked you post", data: "11/12/12" }];
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("likedPosts");
@@ -70,8 +70,9 @@ const Navbar = () => {
             ))}
           </ul>
           {/* noti */}
-
-          <div className="dropdown me-4 ">
+          <Notification />
+          {/*  */}
+          <div className="dropdown me-4">
             <a
               className="nav-link dropdown-toggle dd"
               href="#"
@@ -91,8 +92,8 @@ const Navbar = () => {
                 </a>
                 {}
               </li>
-              {currentUser?.socialMedia?.map((media) => (
-                <li>
+              {currentUser?.socialMedia?.map((media, index) => (
+                <li key={index}>
                   <a className="dropdown-item" href={media.url} target="_blank">
                     {media.name}
                   </a>

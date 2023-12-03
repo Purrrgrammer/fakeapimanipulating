@@ -1,3 +1,4 @@
+import AccountCard from "@/component/AccountCard";
 import { Post } from "@/interface/model";
 import { mainService } from "@/service";
 import { defaultUser } from "@/service/accountService";
@@ -5,15 +6,34 @@ import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 
 export const AccountPage = () => {
-  const [userPosts, setUserPosts] = useState<Post[]>([]);
   const [contentSelected, setContentSelected] = useState("Liked");
   const currentUserFromLocal = JSON.parse(localStorage.getItem("user")!);
   const user = currentUserFromLocal || defaultUser;
+  const [userPosts, setUserPosts] = useState<Post[]>([]);
   const liked = JSON.parse(localStorage.getItem("likedPosts")!);
-  // const shared = JSON.parse(localStorage.getItem("likedPosts")!);
-  // const posts = currentUserFromLocal?.prevPosts || defaultUser;
-  console.log([...new Set(liked)]);
 
+  type CardProps = { data: any };
+
+  const AccountContentCard: React.FC<CardProps> = ({ data }: CardProps) => (
+    <Card
+      className="mx-auto"
+      style={{
+        height: "100%",
+        width: "100%",
+        padding: "20px",
+        margin: "10px 0px",
+      }}
+    >
+      Post #{data.id}
+      <a href={`/post/${data.id}`}>
+        {" "}
+        <h2>{data.title}</h2>
+      </a>
+      <p>{data.body}</p>
+      <div className="d-flex justify-content-between"></div>
+    </Card>
+  );
+  console.log([...new Set(liked)]);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -52,25 +72,7 @@ export const AccountPage = () => {
       content = (
         <div className={`p-4 `}>
           {liked ? (
-            liked.map((el: any) => (
-              <Card
-                className="mx-auto"
-                style={{
-                  height: "100%",
-                  width: "100%",
-                  padding: "20px",
-                  margin: "10px 0px",
-                }}
-              >
-                Post #{el.id}
-                <a href={`/post/${el.id}`}>
-                  {" "}
-                  <h2>{el.title}</h2>
-                </a>
-                <p>{el.body}</p>
-                <div className="d-flex justify-content-between"></div>
-              </Card>
-            ))
+            liked.map((el: CardProps) => <AccountContentCard data={el} />)
           ) : (
             <div>no content</div>
           )}
@@ -112,21 +114,8 @@ export const AccountPage = () => {
   }
 
   return (
-    <div className="px-4 d-flex justify-content-center mt-4 ">
-      <div className="account-card me-4 d-flex flex-column align-items-center">
-        <img className="account-profile-pic" src={user.image} />
-        <div className="account-info d-flex flex-column align-items-center mt-2">
-          <div className="d-flex flex-column justify-content-center align-items-center">
-            <h1 className="">{user.name.toUpperCase()}</h1>
-            <div className="d-flex">
-              <div className="px-1 border-end border-dark">{user.userName}</div>
-              <div className="px-1 ">{user.email}</div>
-            </div>
-          </div>
-          <div className="border p-2 rounded">{user.friends} friends</div>
-          <div className="align-self-start mt-4">bio: {user.bio}</div>
-        </div>
-      </div>
+    <div className="px-4 d-flex flex-column flex-sm-row  justify-content-center mt-4 ">
+      <AccountCard />
       <div className="account-content">
         <nav className="navbar navbar-expand-lg navbar-light bg-light ">
           <div
@@ -154,7 +143,6 @@ export const AccountPage = () => {
             </ul>
           </div>
         </nav>
-
         <div className="acc-content">{content}</div>
       </div>
     </div>

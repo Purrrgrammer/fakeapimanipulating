@@ -75,9 +75,12 @@ body {
 .account-info > div:first-child > h1 {
   font-size: 1.2rem;
 }
-.account-content {
-  width: 50%;
+@media (min-width: 576px) {
+  .account-content {
+    width: 50%;
+  }
 }
+
 .nav-li > li {
   padding: 0 50px;
   margin: 0 20px;
@@ -165,4 +168,12 @@ body {
 a {
   text-decoration: none !important;
   color: black !important;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
 }
