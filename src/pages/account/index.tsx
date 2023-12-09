@@ -114,10 +114,10 @@ export const AccountPage = () => {
   }
 
   return (
-    <div className="px-4 d-flex flex-column flex-sm-row  justify-content-center mt-4 ">
+    <div className="px-4 d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start mt-4 ">
       <AccountCard />
       <div className="account-content">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+        <nav className="navbar navbar-expand navbar-light bg-light acc-nav">
           <div
             className="collapse navbar-collapse justify-content-center"
             id="navbarNav"
@@ -126,7 +126,7 @@ export const AccountPage = () => {
               {contentType.map((el, index) => (
                 <li
                   key={index}
-                  className={`nav-item active ${
+                  className={`nav-item active p-1 mx-1 p-sm-4 mx-sm-4 ${
                     contentSelected === el.name ? "unun" : undefined
                   }`}
                 >

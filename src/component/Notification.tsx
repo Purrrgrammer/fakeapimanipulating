@@ -1,27 +1,31 @@
+import { useState } from "react";
+
 const Notification = () => {
   const noti = [
     {
       who: "billybong",
       activity: "like",
       what: "your post",
-      time: "111/12/23",
+      time: "11/12/23",
       read: true,
     },
     {
       who: "billybong",
       activity: "like",
       what: "your post",
-      time: "111/12/23",
+      time: "11/12/23",
       read: false,
     },
     {
       who: "billybong",
       activity: "like",
       what: "your post",
-      time: "111/12/23",
+      time: "11/12/23",
       read: false,
     },
   ];
+
+  const [notikey, setNotikey] = useState(noti);
   return (
     <div className="dropdown me-4">
       <div
@@ -41,8 +45,16 @@ const Notification = () => {
         </svg>{" "}
       </div>
       <ul className="dropdown-menu">
-        {noti.map((el) => (
-          <a className="dropdown-item" href="#">
+        {notikey.map((el, index) => (
+          <a
+            key={index}
+            className="dropdown-item"
+            href="#"
+            onClick={() => {
+              noti[index].read = false;
+              setNotikey([...noti]);
+            }}
+          >
             <div className="d-flex flex-col p-3">
               <div className="">
                 {el.who} {el.activity} {el.what}

@@ -56,21 +56,25 @@ export const DetailPage = () => {
         setPostLiked(!postLiked);
         break;
       case "comments":
-        newReactionVal[reaction] = newReactionVal[reaction] + 1;
-        const newComment = {
-          postId: 999,
-          id: 999,
-          name: localUser ? localUser.name : defaultUser.name,
-          email: localUser ? localUser.email : defaultUser.email,
-          // name: localUser.name || "default",
-          // email: localUser.email || "default@default.com",
-          body: commentMessage,
-        };
-        if (commentRef) {
-          commentRef.current.value = "";
+        if (commentMessage) {
+          newReactionVal[reaction] = newReactionVal[reaction] + 1;
+          const newComment = {
+            postId: 999,
+            id: 999,
+            name: localUser ? localUser.name : defaultUser.name,
+            email: localUser ? localUser.email : defaultUser.email,
+            // name: localUser.name || "default",
+            // email: localUser.email || "default@default.com",
+            body: commentMessage,
+          };
+          if (commentRef) {
+            commentRef.current.value = "";
+          }
+          setCommentMessage("");
+          setAllComment((prev: any) => [...prev, newComment]);
+        } else {
+          return;
         }
-        setCommentMessage("");
-        setAllComment((prev: any) => [...prev, newComment]);
         break;
       case "shares":
         newReactionVal[reaction] = newReactionVal[reaction] + 1;
@@ -144,13 +148,13 @@ export const DetailPage = () => {
   }, [id]);
   return (
     <>
-      <div className="bg-light ">
+      <div className="bg-light d-flex flex-column align-items-center justify-content-center">
         <Card
           className="mx-auto card-detail"
           style={{ height: "100%", width: "70%", padding: "20px" }}
         >
           Post #{id}
-          <h1>{postDetail.userId}</h1>
+          {/* <h1>{postDetail.userId}</h1> */}
           <h2>{postDetail.title}</h2>
           <p>{postDetail.body}</p>
           <div className="d-flex justify-content-between">
@@ -161,7 +165,7 @@ export const DetailPage = () => {
             </div>
           </div>
         </Card>
-        <div className="py-1 reacting-section border-bottom border-dark d-flex d-flex justify-content-around mx-5">
+        <div className="py-1 reacting-section border-bottom border-dark d-flex d-flex justify-content-around">
           <button
             onClick={() => {
               reactionHandler("likes");

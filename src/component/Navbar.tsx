@@ -34,7 +34,7 @@ const Navbar = () => {
     { name: "Account", href: "/account" },
   ];
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <nav className="navbar navbar-expand-lg navbar-light px-4 bg-light	">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/home">
           <strong>X Y Z</strong>
